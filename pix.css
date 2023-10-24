@@ -1,0 +1,230 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(92,139,50,1) 100%, rgba(0,212,255,1) 100%);
+    
+    
+}
+
+nav {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    color: #FAFF00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+    
+    
+    
+}
+
+
+
+#of {
+    flex: 1;
+    
+    padding: 17px;
+}
+
+#off {
+    flex: 1;
+    
+    padding: 10px;
+}
+
+ul {
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    text-align: center;
+    border: 2px solid yellow;
+    width: 150px;
+    padding: 15px;
+    border-radius: 20%;
+    background: rgb(14,180,47);
+    background: linear-gradient(90deg, rgba(14,180,47,1) 0%, rgba(10,10,10,1) 100%, rgba(0,212,255,1) 100%);
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+    
+   
+    
+}
+
+li p {
+    color: #FAFF00;
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+}
+
+li h1 {
+    color: white;
+    font-family: "Audiowide", sans-serif;
+    
+}
+
+
+#rosca {
+    display: flex;
+    padding: 60px;
+    gap: 5rem;
+    justify-content: center;
+    
+}
+
+.chart {
+    
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: 2px solid black;
+}
+
+.slice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    transform: rotate(var(--rotation, 0deg));
+    transition: transform 1s ease-in-out;
+    transform-origin: 100% 50%;
+}
+
+.slice1 { 
+    background-color: #3498db;
+    
+}
+.slice2 { 
+    background-color: #78bc67; 
+   
+}
+
+
+.inner-circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+.date-filter {
+    display: flex;
+    gap: 2rem;
+    
+    justify-content: center;
+    align-items: center;
+    background: rgb(14,180,47);
+    background: linear-gradient(90deg, rgba(14,180,47,1) 0%, rgba(10,10,10,1) 100%, rgba(0,212,255,1) 100%);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+    color: #FAFF00;
+    
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+}
+
+button {
+    background: rgb(14,180,47);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+    color: #FAFF00;
+    
+}
+
+button:hover {
+    background: rgb(5, 137, 31);
+}
+
+
+
+
+
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgb(14,180,47);
+    background: linear-gradient(90deg, rgba(14,180,47,1) 0%, rgba(10,10,10,1) 100%, rgba(0,212,255,1) 100%);
+    margin-top: 50px;
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+    color: white;
+    
+    
+    
+}
+
+th, td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    
+}
+
+thead {
+    background: rgb(14,180,47);
+    background: linear-gradient(90deg, rgba(14,180,47,1) 0%, rgba(10,10,10,1) 100%, rgba(0,212,255,1) 100%);
+    color: #FAFF00;
+    
+}
+
+th {
+    font-weight: bold;
+    
+   
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

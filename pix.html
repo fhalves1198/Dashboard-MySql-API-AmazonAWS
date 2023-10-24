@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pix.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  <title>DASHBOARD GTM</title>
+</head>
+<body>
+
+<nav>
+  <img src="Group 1.png" alt="">
+<h1>DEPOSIT X REGISTRATIONS</h1>
+</nav>
+
+<div id="of">
+  <ul>
+    
+    <li>
+      <p>Amount Spent</p>
+      <h1 id="investimento">0</h1>
+      </h1>
+    </li>
+    
+      <li>
+        <p>Registrations</p>
+      <h1 id="cadastro2">0</h1>
+      </li>
+
+      <li>
+        <p>Cost - Reg</p>
+      <h1 id="costRegister">0</h1>
+      </li>
+
+      <li>
+        <p>FTD</p>
+      <h1 id="FTD">0</h1>
+      </li>
+
+      <li>
+        <p>Cost - FTD</p>
+      <h1 id="costFTD">0</h1>
+      </li>
+
+      <li>
+        <p>Average FTD</p>
+      <h1 id="averageFTD">0</h1>
+      </li>
+
+      
+    
+
+  </ul>
+</div>
+
+<div id="rosca">
+  <!-- Primeira rosca -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script>
+    var porcentagem1 = 0;
+    var corPadrao1 = "#ccc";
+    var corDestaque1 = "#2ecc71";
+
+    var width1 = 160;
+    var height1 = 160;
+    var radius1 = Math.min(width1, height1) / 2;
+
+    var svg1 = d3.select("#rosca")
+      .append("svg")
+      .attr("width", width1)
+      .attr("height", height1)
+      .append("g")
+      .attr("transform", "translate(" + width1 / 2 + "," + height1 / 2 + ")");
+
+    var arc1 = d3.arc()
+      .outerRadius(radius1 - 10)
+      .innerRadius(radius1 - 30);
+
+    var arcDestaque1 = d3.arc()
+      .outerRadius(radius1 - 10)
+      .innerRadius(radius1 - 30);
+
+    var anguloPorcentagem1 = (porcentagem1 / 100) * 2 * Math.PI;
+    var anguloRestante1 = 2 * Math.PI - anguloPorcentagem1;
+
+    svg1.append("path")
+      .datum({ startAngle: 0, endAngle: anguloRestante1 })
+      .style("fill", corPadrao1)
+      .attr("d", arc1);
+
+    svg1.append("path")
+      .datum({ startAngle: anguloRestante1, endAngle: 2 * Math.PI })
+      .style("fill", corDestaque1)
+      .attr("d", arcDestaque1);
+
+    svg1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", 5)
+      .text(porcentagem1 + "% FTD")
+      .style("font-size", "20px")
+      .style("fill", "white");
+  </script>
+
+  <!-- Segunda rosca -->
+  <script>
+    var porcentagem2 = 0;
+    var corPadrao2 = "#ccc";
+    var corDestaque2 = "#2ecc71";
+
+    var width2 = 160;
+    var height2 = 160;
+    var radius2 = Math.min(width2, height2) / 2;
+
+    var svg2 = d3.select("#rosca")
+      .append("svg")
+      .attr("width", width2)
+      .attr("height", height2)
+      .append("g")
+      .attr("transform", "translate(" + width2 / 2 + "," + height2 / 2 + ")");
+
+    var arc2 = d3.arc()
+      .outerRadius(radius2 - 10)
+      .innerRadius(radius2 - 30);
+
+    var arcDestaque2 = d3.arc()
+      .outerRadius(radius2 - 10)
+      .innerRadius(radius2 - 30);
+
+    var anguloPorcentagem2 = (porcentagem2 / 100) * 2 * Math.PI;
+    var anguloRestante2 = 2 * Math.PI - anguloPorcentagem2;
+
+    svg2.append("path")
+      .datum({ startAngle: 0, endAngle: anguloRestante2 })
+      .style("fill", corPadrao2)
+      .attr("d", arc2);
+
+    svg2.append("path")
+      .datum({ startAngle: anguloRestante2, endAngle: 2 * Math.PI })
+      .style("fill", corDestaque2)
+      .attr("d", arcDestaque2);
+
+    svg2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", 5)
+      .text(porcentagem2 + "% STD")
+      .style("font-size", "20px")
+      .style("fill", "white");
+  </script>
+
+  <!-- Terceira rosca -->
+  <script>
+    var porcentagem3 = 0;
+    var corPadrao3 = "#ccc";
+    var corDestaque3 = "#2ecc71";
+
+    var width3 = 160;
+    var height3 = 160;
+    var radius3 = Math.min(width3, height3) / 2;
+
+    var svg3 = d3.select("#rosca")
+      .append("svg")
+      .attr("width", width3)
+      .attr("height", height3)
+      .append("g")
+      .attr("transform", "translate(" + width3 / 2 + "," + height3 / 2 + ")");
+
+    var arc3 = d3.arc()
+      .outerRadius(radius3 - 10)
+      .innerRadius(radius3 - 30);
+
+    var arcDestaque3 = d3.arc()
+      .outerRadius(radius3 - 10)
+      .innerRadius(radius3 - 30);
+
+    var anguloPorcentagem3 = (porcentagem3 / 100) * 2 * Math.PI;
+    var anguloRestante3 = 2 * Math.PI - anguloPorcentagem3;
+
+    svg3.append("path")
+      .datum({ startAngle: 0, endAngle: anguloRestante3 })
+      .style("fill", corPadrao3)
+      .attr("d", arc3);
+
+    svg3.append("path")
+      .datum({ startAngle: anguloRestante3, endAngle: 2 * Math.PI })
+      .style("fill", corDestaque3)
+      .attr("d", arcDestaque3);
+
+    svg3.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", 5)
+      .text(porcentagem3 + "% TTD")
+      .style("font-size", "20px")
+      .style("fill", "white");
+  </script>
+</div>
+
+
+<div class="date-filter">
+
+<label for="start-date">Initial Date:</label>
+<input type="date" id="start-date">
+
+<label for="end-date">Final Date:</label>
+<input type="date" id="end-date">
+  
+
+  <button id="filter-button">Search</button>
+  <button id="filter-all">Search All</button>
+
+</div>
+
+<table>
+  <thead>
+      <tr>
+         
+          <th>Amount Spent</th>
+          <th>Registrations</th>
+          <th>Cost - Reg</th>
+          <th>FTD</th>
+          <th>Cost - FTD</th>
+          <th>FTD%</th>
+          
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          
+          <td id="investimento1">0</td>
+          <td id="cadastro1">0</td>
+          <td id="costRegister1">0</td>
+          <td id="FTD1">0</td>
+          <td id="costFTD1">0</td>
+          <td id="FTD2">0</td>
+          
+    
+  </tbody>
+</table>
+
+
+
+<script>
+  
+  const authToken = Cookies.get("authToken");
+
+  if (!authToken) {
+    
+    window.location.href = "/login/login.html";
+  }
+  //altera informações da quantidade de registros
+  var cadastro2 = document.getElementById("cadastro2")
+  var cadastro1 = document.getElementById("cadastro1")
+  var costRegister = document.getElementById("costRegister")
+  var costRegister1 = document.getElementById("costRegister1")
+
+  // altera as informações de FTD
+  var FTD = document.getElementById("FTD")
+  var FTD1 = document.getElementById("FTD1")
+  var FTD2 = document.getElementById("FTD2")
+  var costFTD = document.getElementById("costFTD")
+  var costFTD1 = document.getElementById("costFTD1")
+  var averageFTDID = document.getElementById("averageFTD")
+  //var ftd3 = document.getElementById("ftd%")
+
+  //altera informações do investimento
+  var investimento = document.getElementById("investimento")
+  var investimento1 = document.getElementById("investimento1")
+  
+  var buttonAll = document.getElementById("filter-all")
+  var button = document.getElementById("filter-button")
+
+  
+  
+  buttonAll.addEventListener("click", function(event) { //FILTRO GERAL
+    var StartDate = '2023-08-01'
+    var dataAtual = new Date();
+    var dia = dataAtual.getDate();
+    var mes = dataAtual.getMonth() + 1; // Os meses começam em 0 (janeiro) e vão até 11 (dezembro)
+    var ano = dataAtual.getFullYear();
+
+    if (mes < 10) {
+      mes = `0${mes}`
+    }
+
+    console.log(ano + '-' + mes + '-' + dia);
+    var EndDate = `${ano}-${mes}-${dia}`
+    let url = `http://localhost:3000/consulta`
+
+axios.post(url,
+    {
+      StartDate: StartDate,
+      EndDate: EndDate
+     
+    })
+.then(function(response) {
+console.log(response.data.investimentoValues)
+
+//Altera a quantidade de registros
+cadastro1.innerText = `${response.data.totalRegisterCount}`
+cadastro2.innerText = `${response.data.totalRegisterCount}`
+
+//Altera a quantidade de FTD
+FTD.innerText = `${response.data.totalRegisterFtd}`
+FTD1.innerText = `${response.data.totalRegisterFtd}`
+var porcentagemFTD = (response.data.totalRegisterFtd / response.data.totalRegisterCount) * 100
+porcentagem1 = porcentagemFTD
+var anguloPorcentagem1 = (porcentagem1 / 100) * 2 * Math.PI;
+var anguloRestante1 = 2 * Math.PI - anguloPorcentagem1;
+// Atualiza a rosca com os novos ângulos e cor da rosca de destaque
+svg1.select("path:nth-child(1)") // Rosca principal
+  .datum({ startAngle: 0, endAngle: anguloRestante1 })
+  .style("fill", corPadrao1)
+  .attr("d", arc1);
+
+svg1.select("path:nth-child(2)") // Rosca de destaque
+  .datum({ startAngle: anguloRestante1, endAngle: 2 * Math.PI })
+  .style("fill", corDestaque1)
+  .attr("d", arcDestaque1);
+
+svg1.select("text")
+  .text(porcentagem1.toFixed(1) + "% FTD")
+  .style("fill", "white");
+
+FTD2.innerText = `${porcentagemFTD.toFixed(1)}%` // trata o valor
+
+
+
+//Altera a informação de investimento
+investimento.innerText = '$' + response.data.investimentoValues.toFixed(1) 
+investimento1.innerText = '$' +response.data.investimentoValues.toFixed(1) 
+
+
+// altera o custo por registro
+var custoRegistro = response.data.investimentoValues / response.data.totalRegisterCount
+costRegister.innerText = '$' + custoRegistro.toFixed(2)
+costRegister1.innerText = '$' + custoRegistro.toFixed(2)
+
+// altera o custo por ftd
+var custoFTD = response.data.investimentoValues / response.data.totalRegisterFtd
+costFTD.innerText = '$' + custoFTD.toFixed(1)
+costFTD1.innerText = '$' + custoFTD.toFixed(1)
+
+//altera o averageFTD
+var somaFTD = response.data.ftdValues
+var contFTD = response.data.ftdCount
+var averageFTD = (somaFTD / contFTD) / 5
+averageFTDID.innerText = '$' + averageFTD.toFixed(1)
+
+
+
+})
+.catch(function(error) {
+console.log("deu errado", error);
+
+});
+
+
+  })
+
+
+
+
+  button.addEventListener("click", function(event) {// FILTRO PARA DATA ESCOLHIDA
+  var StartDate = document.getElementById("start-date").value
+  var EndDate = document.getElementById("end-date").value
+  console.log(StartDate)
+  
+  
+  
+  
+  
+  let url = `http://localhost:3000/consulta`
+
+  axios.post(url,
+      {
+        StartDate: StartDate,
+        EndDate: EndDate
+       
+      })
+.then(function(response) {
+  console.log(response.data.investimentoValues)
+  
+  //Altera a quantidade de registros
+  cadastro1.innerText = `${response.data.totalRegisterCount}`
+  cadastro2.innerText = `${response.data.totalRegisterCount}`
+
+  //Altera a quantidade de FTD
+  FTD.innerText = `${response.data.totalRegisterFtd}`
+  FTD1.innerText = `${response.data.totalRegisterFtd}`
+  var porcentagemFTD = (response.data.totalRegisterFtd / response.data.totalRegisterCount) * 100
+  porcentagem1 = porcentagemFTD
+  var anguloPorcentagem1 = (porcentagem1 / 100) * 2 * Math.PI;
+  var anguloRestante1 = 2 * Math.PI - anguloPorcentagem1;
+  // Atualiza a rosca com os novos ângulos e cor da rosca de destaque
+  svg1.select("path:nth-child(1)") // Rosca principal
+    .datum({ startAngle: 0, endAngle: anguloRestante1 })
+    .style("fill", corPadrao1)
+    .attr("d", arc1);
+
+  svg1.select("path:nth-child(2)") // Rosca de destaque
+    .datum({ startAngle: anguloRestante1, endAngle: 2 * Math.PI })
+    .style("fill", corDestaque1)
+    .attr("d", arcDestaque1);
+
+  svg1.select("text")
+    .text(porcentagem1.toFixed(1) + "% FTD")
+    .style("fill", "white");
+  
+  FTD2.innerText = `${porcentagemFTD.toFixed(1)}%` // trata o valor
+  
+  
+
+  //Altera a informação de investimento
+  investimento.innerText = '$' + response.data.investimentoValues.toFixed(1) 
+  investimento1.innerText = '$' + response.data.investimentoValues.toFixed(1) 
+  
+
+  // altera o custo por registro
+  var custoRegistro = response.data.investimentoValues / response.data.totalRegisterCount
+  costRegister.innerText = '$' + custoRegistro.toFixed(2)
+  costRegister1.innerText = '$' + custoRegistro.toFixed(2)
+
+  // altera o custo por ftd
+  var custoFTD = response.data.investimentoValues / response.data.totalRegisterFtd
+  costFTD.innerText = '$' + custoFTD.toFixed(1)
+  costFTD1.innerText = '$' + custoFTD.toFixed(1)
+
+  //altera o averageFTD
+  var somaFTD = response.data.ftdValues
+  var contFTD = response.data.ftdCount
+  var averageFTD = (somaFTD / contFTD) / 5
+  averageFTDID.innerText = '$' + averageFTD.toFixed(1)
+  
+  
+  
+})
+.catch(function(error) {
+  console.log("deu errado", error);
+  
+});
+
+})
+
+
+</script>
+  
+</body>
+</html>

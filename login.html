@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+  <link rel="stylesheet" href="login.css">
+  <title>DASH</title>
+</head>
+<body>
+ <nav>
+  <img src="logo-white.png" alt="" style="width: 250px;">
+ </nav>
+ <div>
+    <form id="login-form">
+  
+    <input type="text" id="email" name="username" placeholder="User" style="font-size: 20px;"><br><br>
+
+    <input type="password" id="senha" name="password" placeholder="Password" style="font-size: 20px;"><br><br>
+
+    <button type="submit">Login</button>
+  </form>
+ </div>
+
+ <script>
+
+    var form = document.getElementById('login-form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar o envio padrão do formulário
+
+      // Capturar os valores dos campos
+      var email = document.getElementById('email').value;
+      var senha = document.getElementById('senha').value;
+
+      let url = "http://localhost:3000/login";
+
+      axios.post(url, {
+        email: email,
+        senha: senha
+      })
+      .then(function(response) {
+        var authToken = response.data.authToken;
+        var expires = new Date(); // Cria uma nova data
+        expires.setTime(expires.getTime() + (1 * 60 * 60 * 1000)); // Define o tempo de expiração para 1 hora (ajuste conforme necessário)
+        Cookies.set("authToken", authToken, { expires: expires, path: "/" }); 
+        console.log("deu certo");
+        window.location.href = "index.html"
+      })
+      .catch(function(error) {
+        console.log("deu errado", error);
+        alert("Erro, usuário não existe!");
+      });
+    });
+ </script>
+ 
+  
+</body>
+</html>

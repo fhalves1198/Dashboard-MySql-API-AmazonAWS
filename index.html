@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+</head>
+<body>
+<nav>
+
+  <h1></h1>
+
+</nav>
+
+<ul>
+  
+  <a href="/view/pix/pix.html" id="pix55"><li>PIX55</li></a>
+  <a href="/view/esferabet/esferabet.html" id="owin"><li>ESFERABET</li></a>
+  <a href="/view/megaaposta/megaposta.html" id="x"><li>MEGAPOSTA</li></a>
+  
+  
+</ul>
+
+<script>
+    
+    const authToken = Cookies.get("authToken");
+
+    if (!authToken) {
+      
+      window.location.href = "/login/login.html";
+    }
+  </script>
+  
+</body>
+</html>
